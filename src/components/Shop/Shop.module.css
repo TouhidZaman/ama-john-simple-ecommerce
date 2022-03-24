@@ -1,9 +1,26 @@
 .shopContainer {
     display: grid;
     grid-template-columns: 4fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+
 }
 .productsContainer {
+    margin: 50px 50px 50px 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
+}
+
+@media screen and (max-width:1100px) {
+    .productsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .productsContainer {
+        grid-template-columns: 1fr;
+    }
 }

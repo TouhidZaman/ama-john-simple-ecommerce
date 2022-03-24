@@ -16,6 +16,7 @@
 .productInfo {
     margin: 0 14px;
 }
+
 .productInfo p {
     margin-bottom: 0px;
     margin-top: 5px;
@@ -31,13 +32,25 @@
 }
 
 .addToCartButton {
+    font-weight: bold;
     width: 100%;
     border: none;
     background: #FFE0B3;
     border-radius: 0px 0px 8px 8px;
     position: absolute;
     bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.addToCartButton p {
+    margin-right: 8px;
+}
+
 .addToCartButton:hover {
     background: orange;
+}
+.addToCartButton:active {
+    background: #FFE0B3;
 }
