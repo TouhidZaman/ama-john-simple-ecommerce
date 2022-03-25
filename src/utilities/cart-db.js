@@ -26,10 +26,7 @@ const removeCartData = () => {
 const removeCartItem = id => {
     const cartItems = getCartData();
     if(id in cartItems) delete cartItems[id];
+    localStorage.setItem('shopping-cart', JSON.stringify(cartItems));
 }
-export {
-    getCartData, 
-    setCartData,
-    removeCartItem,
-    removeCartData
-}
+
+export { getCartData, setCartData, removeCartItem, removeCartData };

@@ -3,7 +3,7 @@ import styles from './Cart.module.css'
 
 const Cart = ({cart}) => {
 const totalPrice = cart.reduce((previous, current)=> previous + (current.price * current.quantity), 0);
-const totalShipping = cart.reduce((previous, current)=> previous + (current.shipping * current.quantity), 0);
+const totalShipping = cart.reduce((previous, current)=> previous + current.shipping, 0);
 const totalSelectedItems = cart.reduce((previous, current)=> previous + current.quantity, 0);
 const tax = totalPrice * 0.1;
 const grandTotal = totalPrice + totalShipping + tax;

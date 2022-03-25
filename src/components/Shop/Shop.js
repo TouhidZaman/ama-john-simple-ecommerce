@@ -18,7 +18,7 @@ const Shop = () => {
 
     //Getting Cart data from local storage
     useEffect(() => {
-        const storedCartData = getCartData();
+        const storedCartData = getCartData(); //getting data from local storage
         const savedCart = [];
         for(const id in storedCartData) {
             const product = products.find(product => product.id === id);
@@ -34,17 +34,17 @@ const Shop = () => {
 
     //Add to cart event handler
     const addToCartHandler = product => {
-        const cartIndex = cart.indexOf(product)
+        const productIndex = cart.indexOf(product)
         const newCart = [...cart];
-        if(cartIndex !== -1) {
-            newCart[cartIndex].quantity += 1;
+        if(productIndex !== -1) {
+            newCart[productIndex].quantity += 1;
         }
         else {
             product.quantity = 1;
             newCart.push(product);
         }
         setCart(newCart);
-        setCartData(product.id)
+        setCartData(product.id) //storing data to local storage
     }
 
     return (
