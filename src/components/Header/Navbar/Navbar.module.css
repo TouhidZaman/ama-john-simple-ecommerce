@@ -1,0 +1,26 @@
+.navbar {
+    height: 80px;
+    background: #1C2B35;
+}
+.navItemsContainer {
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navLinks a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin-left: 36px;
+}
+.navLinks a:hover {
+    color: orange;
+}
+.navLinks a.activeStyle {
+    color: orange;
+    
+}
