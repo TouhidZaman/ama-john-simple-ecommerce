@@ -1,0 +1,50 @@
+.order {
+    display: flex;
+    width: 90%;
+    height: 107px;
+    border: 1px solid #95A0A7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.orderImg img {
+    width: 91px;
+    padding: 8px;
+}
+
+.orderDetails {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderInfo h3 {
+    margin: 3px;
+}
+
+.orderInfo p {
+    margin: 3px;
+}
+
+.orderInfo .price {
+    color: orange;
+}
+
+.orderActions {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.deleteCartItemButton {
+    font-size: 24px;
+    border: none;
+    color: rgba(235, 87, 87, 1);
+
+    /* background: #EB5757; */
+    background: rgba(235, 87, 87, 0.3);
+    padding: 8px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
