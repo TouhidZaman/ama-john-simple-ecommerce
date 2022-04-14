@@ -1,21 +1,45 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const SignUp = () => {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const [confirmPass, setConfirmPass] = useState("");
-   const [error, setError] = useState("");
+   const [errorMessage, setErrorMessage] = useState("");
+
+   //hook for creating new user with email and password
+   const [
+      createUserWithEmailAndPassword, 
+      user, 
+      loading, 
+      error
+   ] = useCreateUserWithEmailAndPassword(auth);
+   const navigate = useNavigate();
 
    const handleEmailBlur = (event) => setEmail(event.target.value);
    const handlePasswordBlur = (event) => setPassword(event.target.value);
    const handleConfirmPassBlur = (event) => setConfirmPass(event.target.value);
+
+   if (user) {
+      navigate("/");
+   }
+   if(error) {
+      // setErrorMessage("User creation failed");
+      console.log(error.message);
+   }
+
+   //Handling create user
    const handleCreateUser = (event) => {
       event.preventDefault();
       if (password !== confirmPass) {
-         setError(`Passwords doesn't match`);
+         setErrorMessage(`Passwords doesn't match`);
+         return;
       }
+      setErrorMessage('');
+      createUserWithEmailAndPassword(email, password);
    };
    return (
       <div className="form-container">
@@ -24,13 +48,7 @@ const SignUp = () => {
             <form onSubmit={handleCreateUser}>
                <div className="input-group">
                   <label htmlFor="email">Email</label>
-                  <input
-                     onBlur={handleEmailBlur}
-                     type="email"
-                     name="email"
-                     id=""
-                     required
-                  />
+                  <input onBlur={handleEmailBlur} type="email" name="email" required />
                </div>
                <div className="input-group">
                   <label htmlFor="password">Password</label>
@@ -38,7 +56,6 @@ const SignUp = () => {
                      onBlur={handlePasswordBlur}
                      type="password"
                      name="password"
-                     id=""
                      required
                   />
                </div>
@@ -48,11 +65,11 @@ const SignUp = () => {
                      onBlur={handleConfirmPassBlur}
                      type="password"
                      name="confirm-password"
-                     id=""
                      required
                   />
                </div>
-               <p style={{ color: "red" }}>{error}</p>
+               <p>{loading && "Loading...."}</p>
+               <p style={{ color: "red" }}>{errorMessage || error?.code}</p>
                <input className="form-submit" type="submit" value="Sign Up" />
             </form>
             <p>

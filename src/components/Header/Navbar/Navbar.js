@@ -9,7 +9,7 @@ const Navbar = () => {
       { id: 2, path: "/orders", name: "Orders" },
       { id: 3, path: "/inventory", name: "Inventory" },
       { id: 4, path: "/about", name: "About" },
-      { id: 4, path: "/login", name: "Login" },
+      { id: 5, path: "/login", name: "Login" },
    ];
    return (
       <nav className={styles.navbar}>
