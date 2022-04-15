@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
 import { removeCartItem } from "../../utilities/cart-db";
@@ -7,6 +8,7 @@ import Order from "./Order/Order";
 import styles from "./Orders.module.css";
 
 const Orders = () => {
+   const navigate = useNavigate();
    const [products] = useProducts();
    const [cart, setCart] = useCart(products);
 
@@ -29,6 +31,7 @@ const Orders = () => {
          </div>
          <div className={styles.orderSummeryContainer}>
             <Cart cart={cart} />
+            <button onClick={() => navigate('/shipment')}>Proceed to shipment</button>
          </div>
       </div>
    );
