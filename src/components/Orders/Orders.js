@@ -14,7 +14,7 @@ const Orders = () => {
 
    //Removing order (cart item)
    const deleteCartItemHandler = id => {
-       const remainingCartItems = cart.filter(order => order.id !== id);
+       const remainingCartItems = cart.filter(order => order._id !== id);
        setCart(remainingCartItems);
        removeCartItem(id);
    }
@@ -23,7 +23,7 @@ const Orders = () => {
          <div className={styles.orderItemsContainer}>
             {cart.map((order) => (
                <Order
-                  key={order.id}
+                  key={order._id}
                   deleteCartItem={deleteCartItemHandler}
                   order={order}
                />

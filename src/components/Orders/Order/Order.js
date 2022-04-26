@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Order = ({ order, deleteCartItem }) => {
-   const { id, img, name, price, quantity, shipping } = order;
+   const { _id, img, name, price, quantity, shipping } = order;
    return (
       <div className={styles.order}>
          <div className={styles.orderImg}>
@@ -24,7 +24,7 @@ const Order = ({ order, deleteCartItem }) => {
             <div className={styles.orderActions}>
                <button
                   className={styles.deleteCartItemButton}
-                  onClick={() => deleteCartItem(id)}
+                  onClick={() => deleteCartItem(_id)}
                >
                   <FontAwesomeIcon icon={faTrashAlt} />
                </button>
