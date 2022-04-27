@@ -14,6 +14,23 @@
     gap: 45px;
 }
 
+.pagination {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.pagination button, 
+.pagination select {
+    margin: 4px;
+    padding: 5px 12px;
+    border: 1px solid goldenrod;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.pagination button.active {
+    background-color: orange;
+    color: white;
+}
+
 .orderSummeryContainer {
     background: rgba(255, 153, 0, 0.3);
 
